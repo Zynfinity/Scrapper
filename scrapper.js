@@ -177,7 +177,7 @@ exports.happymoddl = (link) => {
 				const result = [];
 				const title = $('body > div > div.container-left > section:nth-child(1) > div > h1').text()
 				const info = $('body > div > div.container-left > section:nth-child(1) > div > ul').text()
-				$('body > div.container-row.clearfix.container-wrap.pdt-font-container > div.container-left > section:nth-child(1) > div:nth-child(11) > div:nth-child(3) > div > p > a').each(function(a, b) {
+				$('body > div.container-row.clearfix.container-wrap.pdt-font-container > div.container-left > section:nth-child(1) > div > div:nth-child(3) > div > p > a').each(function(a, b) {
 					deta = $(b).text();
 					jlink.push(deta)
 					if ($(b).attr('href').startsWith('/')) {
@@ -192,11 +192,12 @@ exports.happymoddl = (link) => {
 						dl_link: link[i]
 					})
 				}
+				console.log(link)
 				resolve({
 					creator: 'Fajar Ihsana',
 					title: title,
 					info: info.replace(/\t|- /g, ''),
-					download: result
+					download: link
 				})
 			})
 			.catch(reject)
