@@ -409,6 +409,7 @@ exports.anoboydl = (query) => {
 				resolve({
 					judul: $('body > div.wrap > div.container > div.pagetitle > h1').text(),
 					uptime: $('body > div.wrap > div.container > div.pagetitle > div > div > span > time').text(),
+          				direct_link: $('#tontonin > source').attr('src'),
 					mforu: {
 						SD: $('#colomb > p > span:nth-child(1) > a:nth-child(3)').attr('href'),
 						HD: $('#colomb > p > span:nth-child(1) > a:nth-child(5)').attr('href')
