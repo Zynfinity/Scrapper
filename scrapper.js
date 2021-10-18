@@ -7,6 +7,69 @@ const request = require('request');
 const randomarray = async (array) => {
 	return array[Math.floor(Math.random() * array.length)]
 }
+exports.asupanfilm = async (query) => {
+	return new Promise((resolve) => {
+		axios.get(`https://asupanfilm.link/?search=${query}`)
+			.then(({
+				data
+			}) => {
+				const $ = cheerio.load(data)
+				const judul = [];
+				const desc = [];
+				const thumb = [];
+				const link = [];
+				const result = [];
+				$('body > div > div > div.card-body.p-2 > ul > li > div > div > h6 > a').each(function(a, b) {
+					deta = $(b).text();
+					judul.push(deta)
+				})
+				$('body > div > div > div.card-body.p-2 > ul > li > div > div').each(function(a, b) {
+					deta = $(b).text()
+					desc.push(deta.split('   ')[2])
+				})
+				$('body > div > div > div.card-body.p-2 > ul > li > div > img').each(function(a, b) {
+					thumb.push($(b).attr('src').split('UX67_CR0,0,67,98_AL_')[0])
+				})
+				$('body > div > div > div.card-body.p-2 > ul > li > div > div > h6 > a').each(function(a, b) {
+					link.push('https://asupanfilm.link/' + $(b).attr('href'))
+				})
+				for (let i = 0; i < judul.length; i++) {
+					result.push({
+						judul: judul[i],
+						deskripsi: desc[i],
+						thumb: thumb[i],
+						link: link[i]
+					})
+				}
+				resolve(result)
+			})
+	})
+}
+exports.asupanfilminfo = async (link) => {
+	return new Promise((resolve) => {
+		axios.get(link)
+			.then(({
+				data
+			}) => {
+				const $ = cheerio.load(data)
+				const info = {
+					judul: $('body > div > div:nth-child(5) > div.card-body.p-2 > ul > li:nth-child(1)').text(),
+					alurcerita_imdb: $('body > div > div:nth-child(5) > div.card-body.p-2 > ul > li:nth-child(2)').text().split(' Alur Cerita IMDb: ')[1],
+					alurcerita_tmdb: $('body > div > div:nth-child(5) > div.card-body.p-2 > ul > li:nth-child(3)').text().split(' Alur Cerita TMDb: ')[1],
+					direksi: $('body > div > div:nth-child(5) > div.card-body.p-2 > ul > li:nth-child(4)').text().split(' Direksi: ')[1],
+					pemeran: $('body > div > div:nth-child(5) > div.card-body.p-2 > ul > li:nth-child(5)').text().split(' Pemeran: ')[1],
+					kategori: $('body > div > div:nth-child(5) > div.card-body.p-2 > ul > li:nth-child(6)').text().split(' Kategori: ')[1],
+					negara: $('body > div > div:nth-child(5) > div.card-body.p-2 > ul > li:nth-child(7)').text().split(' Negara: ')[1],
+					tahun_rilis: $('body > div > div:nth-child(5) > div.card-body.p-2 > ul > li:nth-child(8)').text().split(' Tahun Rilis: ')[1],
+					durasi: $('body > div > div:nth-child(5) > div.card-body.p-2 > ul > li:nth-child(9)').text().split(' Durasi: ')[1],
+					skor: $('body > div > div:nth-child(5) > div.card-body.p-2 > ul > li:nth-child(10)').text().split(' Skor: ')[1],
+					kualitas: $('body > div > div:nth-child(5) > div.card-body.p-2 > ul > li:nth-child(11)').text().split(' Kualitas: ')[1],
+					jenis: $('body > div > div:nth-child(5) > div.card-body.p-2 > ul > li:nth-child(12)').text().split(' Jenis: ')[1]
+				}
+				resolve(info)
+			})
+	})
+}
 exports.stickersearch = async (query) => {
 	return new Promise((resolve) => {
 		axios.get(`https://getstickerpack.com/stickers?query=${query}`)
@@ -409,7 +472,7 @@ exports.anoboydl = (query) => {
 				resolve({
 					judul: $('body > div.wrap > div.container > div.pagetitle > h1').text(),
 					uptime: $('body > div.wrap > div.container > div.pagetitle > div > div > span > time').text(),
-          				direct_link: $('#tontonin > source').attr('src'),
+					direct_link: $('#tontonin > source').attr('src'),
 					mforu: {
 						SD: $('#colomb > p > span:nth-child(1) > a:nth-child(3)').attr('href'),
 						HD: $('#colomb > p > span:nth-child(1) > a:nth-child(5)').attr('href')
