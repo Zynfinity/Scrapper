@@ -15,5 +15,5 @@ Kalo perlu monggo dipake, Ada beberapa yang error pastinya:V
   ## Thanks to
   - [Hardianto](https://github.com/hardiantojek93)
   - [Hexagonz](https://github.com/Hexagonz)
-  - [Senku] (https://github.com/SenkuXZ)
+  - [Senku](https://github.com/SenkuXZ)
   
