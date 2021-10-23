@@ -18,9 +18,34 @@ Kalo perlu monggo dipake, Ada beberapa yang error pastinya:V
 | :-----------: | :--------------------------------: |
 |       ✅       | merdekanews          |
 |       ✅       | metronews                    |
-|       ✅       | anondl (anoboy download)             |
+|       ✅       | anoboydl (anoboy download)             |
 |       ✅       | asupanfilm   |
 |       ✅       | stickersearch |
+|       ✅       | randomtt (random vid tiktok) |
+|       ✅       | trendtwit (tred tweet) |
+|       ✅       | pinterest |
+|       ✅       | zerochan |
+|       ✅       | konachan |
+|       ✅       | job (loker) |
+|       ✅       | anoboys (anoboy search) |
+|       ✅       | webtoons |
+|       ✅       | soundcloud (downloader) |
+|       ✅       | igdl |
+|       ✅       | igstalk |
+|       ✅       | gempa |
+|       ✅       | cariresep |
+|       ✅       | bacaresep |
+|       ✅       | searchgore |
+|       ✅       | randomgore |
+|       ✅       | apkmirror (search) |
+|       ✅       | android1 (search) |
+|       ✅       | apkmody (search) |
+|       ✅       | happymod (seatch) |
+|       ✅       | drakor (search) |
+|       ✅       | carigc (search gc wa) |
+|       ✅       | sfilesearch (search sfile) |
+|       ✅       | wallpaperhd (search) |
+|       ✅       | Dll... |
     
   ## Thanks to
   - [Hardianto](https://github.com/hardiantojek93)
