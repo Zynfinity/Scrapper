@@ -11,7 +11,17 @@
   
 # Scrapper
 Kalo perlu monggo dipake, Ada beberapa yang error pastinya:V    
-  
+
+## Features
+
+| Status |                Feature           |
+| :-----------: | :--------------------------------: |
+|       ✅       | merdekanews          |
+|       ✅       | metronews                    |
+|       ✅       | anondl (anoboy download)             |
+|       ✅       | asupanfilm   |
+|       ✅       | stickersearch |
+    
   ## Thanks to
   - [Hardianto](https://github.com/hardiantojek93)
   - [Hexagonz](https://github.com/Hexagonz)
