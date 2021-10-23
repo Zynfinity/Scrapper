@@ -913,10 +913,7 @@ exports.searchgore = async (query) => {
 }
 exports.randomgore = async () => {
 	return new Promise(async (resolve, reject) => {
-		axios.get('https://seegore.com/gore/').then(dataa => {
-			const $$$ = cheerio.load(dataa)
-			pagina = $$$('#main > div.container.main-container.bb-stretched-full > div > div > div > div > div > div > nav > ul > li:nth-child(4) > a').text();
-			rand = Math.floor(Math.random() * pagina) + 1
+			rand = Math.floor(Math.random() * 218) + 1
 			randvid = Math.floor(Math.random() * 16) + 1
 			if (rand === 1) {
 				slink = 'https://seegore.com/gore/'
@@ -941,7 +938,7 @@ exports.randomgore = async () => {
 							const format = {
 								judul: $$('div.single-main-container > div > div.bb-col.col-content > div > div > div > div > header > h1').text(),
 								views: $$('div.single-main-container > div > div.bb-col.col-content > div > div > div > div > div.s-post-meta-block.bb-mb-el > div > div > div.col-r.d-table-cell.col-md-6.col-sm-6.text-right-sm > div > span > span.count').text(),
-								comment: $$('div.single-main-container > div > div.bb-col.col-content > div > div > div > div > div.s-post-meta-block.bb-mb-el > div > div > div.col-r.d-table-cell.col-md-6.col-sm-6.text-right-sm > div > a > span.count').text(),
+								comment: $$('div.single-main-container > div > div.bb-col.col-content > div > div > div > div > div.s-post-meta-block.bb-mb-el > div > div > div.col-r.d-table-cell.col-md-6.col-sm-6.text-right-sm > div > a > span.count').text() == '' ? 'Tidak ada komentar' : $$('div.single-main-container > div > div.bb-col.col-content > div > div > div > div > div.s-post-meta-block.bb-mb-el > div > div > div.col-r.d-table-cell.col-md-6.col-sm-6.text-right-sm > div > a > span.count').text(),
 								thumb: thumbb,
 								link: $$('video > source').attr('src')
 							}
@@ -951,7 +948,6 @@ exports.randomgore = async () => {
 							}
 							resolve(result)
 						})
-				})
 				.catch(reject)
 		})
 	})
